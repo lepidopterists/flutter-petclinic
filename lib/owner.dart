@@ -20,5 +20,4 @@ class Owner {
   }
 
 // TODO: Add pets
-
 }
