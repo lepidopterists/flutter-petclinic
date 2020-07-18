@@ -9,6 +9,6 @@ class Owner {
   Owner(this.id, this.firstName, this.lastName, this.address, this.city,
       this.telephone);
 
-// pets
+// TODO: Add pets
 
 }

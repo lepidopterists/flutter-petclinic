@@ -13,6 +13,7 @@ void main() {
       expect(owner.address, '110 W. Liberty St.');
       expect(owner.city, 'Madison');
       expect(owner.telephone, '6085551023');
+      // TODO: Test pets
     });
   });
 }
