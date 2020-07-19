@@ -4,7 +4,7 @@ A PetClinic front-end to a Spring PetClinic REST back-end.
 
 [Spring PetClinic REST](https://github.com/spring-petclinic/spring-petclinic-REST)
 
-![Screenshot_1595152561](https://user-images.githubusercontent.com/595430/87874590-7484cf80-c9a1-11ea-8ad2-94c24db03d7f.png)
+![Screenshot_1595158876](https://user-images.githubusercontent.com/595430/87874707-579ccc00-c9a2-11ea-935b-9ecb4fd12e21.png)
 
 There is a similar Angular front-end for the same back-end:
 
