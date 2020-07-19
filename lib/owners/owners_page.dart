@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
+import 'owner_details.dart';
 import 'owner_provider.dart';
 
 class OwnersPage extends StatefulWidget {
@@ -45,6 +46,13 @@ class _OwnersPageState extends State<OwnersPage> {
                       '${owners[index].firstName} ${owners[index].lastName} (${owners[index].telephone})'),
                   subtitle:
                       Text('${owners[index].address}, ${owners[index].city} '),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
+                        return OwnerDetails(owner: owners[index]);
+                      }),
+                    );
+                  },
                 );
               },
               itemCount: owners.length,
@@ -58,3 +66,4 @@ class _OwnersPageState extends State<OwnersPage> {
     );
   }
 }
+
