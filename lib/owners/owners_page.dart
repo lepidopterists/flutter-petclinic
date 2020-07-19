@@ -40,6 +40,7 @@ class _OwnersPageState extends State<OwnersPage> {
                   color: Colors.black,
                 );
               },
+              itemCount: owners.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(
@@ -55,7 +56,6 @@ class _OwnersPageState extends State<OwnersPage> {
                   },
                 );
               },
-              itemCount: owners.length,
             );
           }
           return Center(
