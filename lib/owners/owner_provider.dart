@@ -11,7 +11,6 @@ class OwnerProvider {
     String password = 'admin';
     String basicAuth =
         'Basic ' + base64Encode(utf8.encode('$username:$password'));
-    //Client end_point = Client();
     log("Inside provider");
     final serverEndpoint = 'http://192.168.15.47:9966/petclinic/api/owners';
     final response = await http.get(serverEndpoint,

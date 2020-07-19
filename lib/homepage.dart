@@ -3,22 +3,19 @@ import 'package:flutter/material.dart';
 import 'owners/owners_page.dart';
 import 'veterinarians/veterinarians_page.dart';
 
-class MyHomepage3 extends StatefulWidget {
-  MyHomepage3({Key key}) : super(key: key);
+class MyHomepage extends StatefulWidget {
+  MyHomepage({Key key}) : super(key: key);
 
   @override
-  _MyHomepage3State createState() => _MyHomepage3State();
+  _MyHomepageState createState() => _MyHomepageState();
 }
 
-class _MyHomepage3State extends State<MyHomepage3> {
+class _MyHomepageState extends State<MyHomepage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
-    Text(
-      '',
-      style: optionStyle,
-    ),
+    Text(''),
     OwnersPage(title: 'PetClinic'),
     VeterinariansPage(title: 'PetClinic'),
   ];

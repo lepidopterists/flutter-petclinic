@@ -26,9 +26,6 @@ class _VeterinariansPageState extends State<VeterinariansPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-      //  title: Text(widget.title),
-      //),
       body: FutureBuilder(
         future: provider.fetchAllVeterinarians(),
         builder: (context, snapshot) {
@@ -46,8 +43,6 @@ class _VeterinariansPageState extends State<VeterinariansPage> {
                 return ListTile(
                   title: Text(
                       '${veterinarians[index].firstName} ${veterinarians[index].lastName}'),
-                  //       subtitle: Text(
-                  //         '${veterinarians[index].address}, ${veterinarians[index].city} '),
                 );
               },
               itemCount: veterinarians.length,

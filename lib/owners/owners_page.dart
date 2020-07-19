@@ -26,9 +26,6 @@ class _OwnersPageState extends State<OwnersPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-      //  title: Text(widget.title),
-      //),
       body: FutureBuilder(
         future: provider.fetchAllOwners(),
         builder: (context, snapshot) {
