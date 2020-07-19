@@ -28,7 +28,7 @@ class _OwnersPageState extends State<OwnersPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: provider.fetchAllOwners(),
+        future: provider.getOwners(),
         builder: (context, snapshot) {
           log("$snapshot.data");
           final owners = snapshot.data;

@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'owner.dart';
 
 class OwnerProvider {
-  Future<List<Owner>> fetchAllOwners() async {
+  Future<List<Owner>> getOwners() async {
     String username = 'admin';
     String password = 'admin';
     String basicAuth =

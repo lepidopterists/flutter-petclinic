@@ -6,7 +6,7 @@ void main() {
   group('Veterinarian Provider tests', () {
     test('Veterinarian list from test database', () async {
       VeterinarianProvider provider = VeterinarianProvider();
-      List<Veterinarian> owners = await provider.fetchAllVeterinarians();
+      List<Veterinarian> owners = await provider.getVeterinarians();
       expect(owners.length, 6);
       Veterinarian first = owners.elementAt(0);
       expect(first.firstName, 'James');

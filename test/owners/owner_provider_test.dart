@@ -6,7 +6,7 @@ void main() {
   group('Owner Provider tests', () {
     test('Owner list from test database', () async {
       OwnerProvider provider = OwnerProvider();
-      List<Owner> owners = await provider.fetchAllOwners();
+      List<Owner> owners = await provider.getOwners();
       expect(owners.length, 10);
       Owner first = owners.elementAt(0);
       expect(first.firstName, 'George');

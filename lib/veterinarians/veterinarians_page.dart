@@ -27,7 +27,7 @@ class _VeterinariansPageState extends State<VeterinariansPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: provider.fetchAllVeterinarians(),
+        future: provider.getVeterinarians(),
         builder: (context, snapshot) {
           log("$snapshot.data");
           final veterinarians = snapshot.data;

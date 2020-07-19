@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'veterinarian.dart';
 
 class VeterinarianProvider {
-  Future<List<Veterinarian>> fetchAllVeterinarians() async {
+  Future<List<Veterinarian>> getVeterinarians() async {
     String username = 'admin';
     String password = 'admin';
     String basicAuth =
