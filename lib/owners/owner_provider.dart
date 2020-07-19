@@ -13,8 +13,8 @@ class OwnerProvider {
         'Basic ' + base64Encode(utf8.encode('$username:$password'));
     //Client end_point = Client();
     log("Inside provider");
-    final response = await http.get(
-        'http://192.168.15.47:9966/petclinic/api/owners',
+    final serverEndpoint = 'http://192.168.15.47:9966/petclinic/api/owners';
+    final response = await http.get(serverEndpoint,
         headers: <String, String>{'authorization': basicAuth});
     log("After response");
 

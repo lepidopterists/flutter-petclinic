@@ -6,14 +6,12 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterpetclinic/main.dart';
+import 'package:flutterpetclinic/petclinic_app.dart';
 
 void main() {
   testWidgets('PetClinic shows on screen', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
     await tester.pumpWidget(PetClinicApp());
 
-    // Verify that our counter starts at 0.
     expect(find.text('PetClinic'), findsOneWidget);
   });
 }

@@ -1,4 +1,4 @@
-import 'package:flutterpetclinic/owner.dart';
+import 'package:flutterpetclinic/owners/owner.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -1,5 +1,5 @@
-import 'package:flutterpetclinic/owner.dart';
-import 'package:flutterpetclinic/owner_provider.dart';
+import 'package:flutterpetclinic/owners/owner.dart';
+import 'package:flutterpetclinic/owners/owner_provider.dart';
 import 'package:test/test.dart';
 
 void main() {
