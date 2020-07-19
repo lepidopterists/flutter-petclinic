@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
@@ -29,6 +30,34 @@ class OwnerProvider {
 
       //throw Exception('Failed to load postal address.');
       return null;
+    }
+  }
+
+  void updateOwner(Owner owner) async {
+    assert(owner != null);
+
+    String username = 'admin';
+    String password = 'admin';
+    String basicAuth =
+        'Basic ' + base64Encode(utf8.encode('$username:$password'));
+    log("Inside provider update owner method");
+    final serverEndpoint =
+        'http://192.168.15.47:9966/petclinic/api/owners/${owner.id}';
+    final response = await http.put(
+      serverEndpoint,
+      headers: <String, String>{
+        HttpHeaders.authorizationHeader: basicAuth,
+        HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
+        HttpHeaders.acceptHeader: 'application/json'
+      },
+      body: jsonEncode(owner),
+    );
+
+    if (response.statusCode == 204) {
+      log("Status OK");
+    } else {
+      log("Status BAD");
+      throw Exception('Failed to update owner.');
     }
   }
 }

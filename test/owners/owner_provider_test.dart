@@ -11,5 +11,13 @@ void main() {
       Owner first = owners.elementAt(0);
       expect(first.firstName, 'George');
     });
+
+    test('Save owner to the database', () async {
+      OwnerProvider provider = OwnerProvider();
+      Owner owner = Owner(1, 'Charles', 'Aznavour', '52 Av. de Champs-Élysées',
+          'Paris', '1234567890');
+      await provider.updateOwner(owner);
+      //expect('James', 'George');
+    });
   });
 }

@@ -39,13 +39,13 @@ class _VeterinariansPageState extends State<VeterinariansPage> {
                   color: Colors.black,
                 );
               },
+              itemCount: veterinarians.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(
                       '${veterinarians[index].firstName} ${veterinarians[index].lastName}'),
                 );
               },
-              itemCount: veterinarians.length,
             );
           }
           return Center(

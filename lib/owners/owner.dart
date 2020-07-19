@@ -19,5 +19,14 @@ class Owner {
         parsedJson['telephone']);
   }
 
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'firstName': firstName,
+        'lastName': lastName,
+        'address': address,
+        'city': city,
+        'telephone': telephone,
+        'pets': [],
+      };
 // TODO: Add pets
 }
