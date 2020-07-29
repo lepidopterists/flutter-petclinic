@@ -1,3 +1,7 @@
+// Copyright (c) 2020, the Flutter PetClinicApp project authors.  Please see
+// the AUTHORS file for details. All rights reserved. Use of this source code
+// is governed by a BSD-style license that can be found in the LICENSE file.
+
 import 'dart:developer' as dev;
 
 import 'package:flutter/material.dart';
@@ -5,6 +9,9 @@ import 'package:flutterpetclinic/owners/owner_provider.dart';
 
 import 'owner.dart';
 
+/**
+ *
+ */
 class OwnerDetails extends StatefulWidget {
   const OwnerDetails({
     Key key,
@@ -17,6 +24,9 @@ class OwnerDetails extends StatefulWidget {
   _OwnerDetailsState createState() => _OwnerDetailsState(owner: owner);
 }
 
+/**
+ *
+ */
 class _OwnerDetailsState extends State<OwnerDetails> {
   _OwnerDetailsState({
     @required this.owner,
@@ -91,6 +101,9 @@ class _OwnerDetailsState extends State<OwnerDetails> {
   }
 }
 
+/**
+ *
+ */
 class OwnerEdit extends StatefulWidget {
   OwnerEdit({
     Key key,
@@ -103,14 +116,56 @@ class OwnerEdit extends StatefulWidget {
   _OwnerEditState createState() => _OwnerEditState(owner: owner);
 }
 
+/**
+ *
+ */
 class _OwnerEditState extends State<OwnerEdit> {
-  final owner;
+  /**
+   *
+   */
+  final Owner owner;
 
+  /**
+   *
+   */
   _OwnerEditState({
     @required this.owner,
   });
 
+  /**
+   *
+   */
   final _formKey = GlobalKey<FormState>();
+
+  final idController = TextEditingController();
+  final firstNameController = TextEditingController();
+  final lastNameController = TextEditingController();
+  final addressController = TextEditingController();
+  final cityController = TextEditingController();
+  final telephoneController = TextEditingController();
+
+  @override
+  void initState() {
+    idController.text = '${owner.id}';
+    firstNameController.text = owner.firstName;
+    lastNameController.text = owner.lastName;
+    addressController.text = owner.address;
+    cityController.text = owner.city;
+    telephoneController.text = owner.telephone;
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    idController.dispose();
+    firstNameController.dispose();
+    lastNameController.dispose();
+    addressController.dispose();
+    cityController.dispose();
+    telephoneController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -126,8 +181,17 @@ class _OwnerEditState extends State<OwnerEdit> {
             children: <Widget>[
               // Add TextFormFields and RaisedButton here.
               TextFormField(
+                readOnly: true,
+                enabled: false,
+
+                controller: idController,
+                decoration: InputDecoration(labelText: 'ID(Hidden)):'),
+                //initialValue: '${owner.id}',
+              ),
+              TextFormField(
+                controller: firstNameController,
                 decoration: InputDecoration(labelText: 'First Name:'),
-                initialValue: owner.firstName,
+                //initialValue: owner.firstName,
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Please enter some text';
@@ -136,8 +200,9 @@ class _OwnerEditState extends State<OwnerEdit> {
                 },
               ),
               TextFormField(
+                controller: lastNameController,
                 decoration: InputDecoration(labelText: 'Last Name:'),
-                initialValue: owner.lastName,
+                //initialValue: owner.lastName,
                 validator: (value) {
                   if (value.isEmpty) {
                     return 'Please enter some text';
@@ -146,20 +211,57 @@ class _OwnerEditState extends State<OwnerEdit> {
                 },
               ),
               TextFormField(
+                controller: addressController,
                 decoration: InputDecoration(labelText: 'Address:'),
-                initialValue: owner.address,
+                //initialValue: owner.address,
               ),
               TextFormField(
+                controller: cityController,
                 decoration: InputDecoration(labelText: 'City:'),
-                initialValue: owner.city,
+                //initialValue: owner.city,
               ),
               TextFormField(
+                controller: telephoneController,
                 decoration: InputDecoration(labelText: 'Telephone:'),
-                initialValue: owner.telephone,
+                //initialValue: owner.telephone,
+                validator: (value) {
+                  if (value.isEmpty || value.length != 10) {
+                    return 'Telephones must have 10 digits';
+                  }
+                  return null;
+                },
               ),
 
               //
-              SubmitWidget(formKey: _formKey),
+              //SubmitWidget(formKey: _formKey),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: RaisedButton(
+                  onPressed: () async {
+                    if (_formKey.currentState.validate()) {
+                      // TODO: get data, update owner object, save with provider
+                      OwnerProvider provider = OwnerProvider();
+                      Owner updatedOwner = Owner(
+                        int.parse(idController.text),
+                        firstNameController.text,
+                        lastNameController.text,
+                        addressController.text,
+                        cityController.text,
+                        telephoneController.text,
+                      );
+                      await provider.updateOwner(updatedOwner);
+                      setState(() {
+                        owner.firstName = updatedOwner.firstName;
+                      });
+                      print('Snack');
+                      Navigator.pop(context);
+                      //Scaffold.of(context).showSnackBar(
+                      //    SnackBar(content: Text('Processing Data')));
+                    }
+                  },
+                  child: Text('Submit'),
+                ),
+              ),
             ],
           ),
         ),
@@ -168,15 +270,28 @@ class _OwnerEditState extends State<OwnerEdit> {
   }
 }
 
+/**
+ *
+ */
 class SubmitWidget extends StatelessWidget {
+  /**
+   *
+   */
   const SubmitWidget({
     Key key,
     @required GlobalKey<FormState> formKey,
-  })  : _formKey = formKey,
+  })
+      : _formKey = formKey,
         super(key: key);
 
+  /**
+   *
+   */
   final GlobalKey<FormState> _formKey;
 
+  /**
+   *
+   */
   @override
   Widget build(BuildContext context) {
     return Padding(
