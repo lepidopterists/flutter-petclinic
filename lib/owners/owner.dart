@@ -3,11 +3,11 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 /**
- *
+ * Simple domain object representing a pet owner.
  */
 class Owner {
   /**
-   *
+   * Identity property.
    */
   int id;
 
