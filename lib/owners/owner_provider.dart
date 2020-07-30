@@ -18,12 +18,14 @@ class OwnerProvider {
    *
    */
   Future<List<Owner>> getOwners() async {
+    //var config = new ApplicationConfiguration();
     String username = 'admin';
     String password = 'admin';
+    String address = 'http://192.168.15.47:9966/petclinic';
     String basicAuth =
         'Basic ' + base64Encode(utf8.encode('$username:$password'));
     log("Inside provider");
-    final serverEndpoint = 'http://192.168.15.47:9966/petclinic/api/owners';
+    final serverEndpoint = '$address/api/owners';
     final response = await http.get(serverEndpoint,
         headers: <String, String>{'authorization': basicAuth});
     log("After response");
