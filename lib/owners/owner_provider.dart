@@ -18,7 +18,6 @@ class OwnerProvider {
    *
    */
   Future<List<Owner>> getOwners() async {
-    //var config = new ApplicationConfiguration();
     String username = 'admin';
     String password = 'admin';
     String address = 'http://192.168.15.47:9966/petclinic';

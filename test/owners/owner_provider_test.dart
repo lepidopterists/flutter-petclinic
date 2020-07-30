@@ -16,7 +16,7 @@ void main() {
       List<Owner> owners = await provider.getOwners();
       expect(owners.length, 10);
       Owner first = owners.elementAt(0);
-      expect(first.firstName, 'George');
+      expect(first.firstName, 'Charles');
     });
 
     test('Save owner to the database', () async {
