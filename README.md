@@ -27,3 +27,12 @@ A few resources to get started with this first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Before executing this project
+
+In order to execute the current project, a petclinic restful server is required. The [spring petclinic rest](https://github.com/spring-petclinic/spring-petclinic-rest.git) project is available to delivery this resource. [Maven](https://maven.apache.org/) is used in the process.
+
+The followings steps may be acomplished to have your local petclinic rest server running
+- git clone https://github.com/spring-petclinic/spring-petclinic-rest.git
+- cd spring-petclinic-rest
+- ./mvnw spring-boot:run
