@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:flutterpetclinic/petclinic.dart';
 import 'package:http/http.dart' as http;
 
 import 'owner.dart';
@@ -18,9 +19,10 @@ class OwnerProvider {
    *
    */
   Future<List<Owner>> getOwners() async {
-    String username = 'admin';
-    String password = 'admin';
-    String address = 'http://192.168.15.47:9966/petclinic';
+    var config = PetClinic();
+    String username = config.username;
+    String password = config.password;
+    String address = config.address;
     String basicAuth =
         'Basic ' + base64Encode(utf8.encode('$username:$password'));
     log("Inside provider");
@@ -39,7 +41,7 @@ class OwnerProvider {
     } else {
       log("Status BAD");
 
-      //throw Exception('Failed to load postal address.');
+      throw Exception('Failed to load postal address.');
       return null;
     }
   }

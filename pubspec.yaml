@@ -1,5 +1,6 @@
 name: flutterpetclinic
-description: A PetClinic front-end to a Spring Petclinic REST back-end.
+description: A Flutter Petclinic front-end for a Spring Petclinic REST back-end.
+homepage: https://github.com/lepidopterists/flutter-petclinic
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -19,6 +20,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  yaml:
   cupertino_icons: ^0.1.3
   flutter:
     sdk: flutter

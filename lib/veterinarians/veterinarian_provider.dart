@@ -7,6 +7,7 @@ import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 
+import '../petclinic.dart';
 import 'veterinarian.dart';
 
 /**
@@ -17,12 +18,14 @@ class VeterinarianProvider {
    *
    */
   Future<List<Veterinarian>> getVeterinarians() async {
-    String username = 'admin';
-    String password = 'admin';
+    var config = PetClinic();
+    String username = config.username;
+    String password = config.password;
+    String address = config.address;
     String basicAuth =
         'Basic ' + base64Encode(utf8.encode('$username:$password'));
     log("Inside provider");
-    final serverEndpoint = 'http://192.168.15.47:9966/petclinic/api/vets';
+    final serverEndpoint = '$address//api/vets';
     final response = await http.get(serverEndpoint,
         headers: <String, String>{'authorization': basicAuth});
     log("After response");

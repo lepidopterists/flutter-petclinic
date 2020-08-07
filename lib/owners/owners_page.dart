@@ -72,6 +72,7 @@ class _OwnersPageState extends State<OwnersPage> {
                         return OwnerDetails(owner: owners[index]);
                       }),
                     );
+                    setState(() {});
                   },
                 );
               },
