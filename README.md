@@ -38,4 +38,4 @@ cd spring-petclinic-rest
 ./mvnw spring-boot:run
 ```
 A REST back-end should running at localhost at http://localhost:9966/petclinic.
-
+Get your server address and update petclinic.yaml to your base application address and user credentials.
