@@ -1,14 +1,12 @@
 # flutterpetclinic
 
-A PetClinic front-end to a Spring PetClinic REST back-end.
+This front-end variant of the Spring Petclinic application only provides a UI and client-side logic. There is no back-end. The [Spring Petclinic REST](https://github.com/spring-petclinic/spring-petclinic-REST) is a back-end server which provides the necessary REST API.
 
-[Spring PetClinic REST](https://github.com/spring-petclinic/spring-petclinic-REST)
+<img src="https://user-images.githubusercontent.com/595430/87874707-579ccc00-c9a2-11ea-935b-9ecb4fd12e21.png" width="150">
 
-![Screenshot_1595158876](https://user-images.githubusercontent.com/595430/87874707-579ccc00-c9a2-11ea-935b-9ecb4fd12e21.png)
+## Similar Applications
 
-There is a similar Angular front-end for the same back-end:
-
-[Spring PetClinic Angular](https://github.com/spring-petclinic/spring-petclinic-angular)
+There is a [Spring Petclinic Angular](https://github.com/spring-petclinic/spring-petclinic-angular) front-end for the same back-end.
 
 ## Getting Started
 
@@ -27,3 +25,17 @@ A few resources to get started with this first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Running this project locally
+
+In order to execute the current project, a petclinic restful server is required. The [spring petclinic rest](https://github.com/spring-petclinic/spring-petclinic-rest.git) project is available to delivery this resource. [Maven](https://maven.apache.org/) is used in the process.
+
+The followings steps may be accomplished to have your local petclinic rest server running
+
+```
+git clone https://github.com/spring-petclinic/spring-petclinic-rest.git
+cd spring-petclinic-rest
+./mvnw spring-boot:run
+```
+A REST back-end should running at localhost at http://localhost:9966/petclinic.
+
