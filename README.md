@@ -1,4 +1,4 @@
-# flutterpetclinic
+# flutterpetclinic ![Flutter CI](https://github.com/lepidopterists/flutter-petclinic/workflows/Flutter%20CI/badge.svg)
 
 This front-end variant of the Spring Petclinic application only provides a UI and client-side logic. There is no back-end. The [Spring Petclinic REST](https://github.com/spring-petclinic/spring-petclinic-REST) is a back-end server which provides the necessary REST API.
 
