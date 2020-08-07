@@ -23,8 +23,7 @@ jobs:
       with:
         channel: 'stable' # or: 'dev' or 'beta'
     - run: flutter pub get
-    - run: flutter test
-    - run: flutter build apk
+
     - name: Public IP
       id: ip
       uses: haythem/public-ip@v1
@@ -34,3 +33,5 @@ jobs:
         echo ${{ steps.ip.outputs.ipv4 }}
         echo ${{ steps.ip.outputs.ipv6 }}
         
+    #- run: flutter test
+    - run: flutter build apk
